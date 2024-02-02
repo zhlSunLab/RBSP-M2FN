@@ -1,6 +1,6 @@
 # RSMBSP-DON
 
-##dependencies:
+## dependencies:
 - pytorch=1.4.0
 - cudatoolkit=10.1.243
 - cudnn=7.6.0
