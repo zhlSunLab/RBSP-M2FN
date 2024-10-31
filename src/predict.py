@@ -13,7 +13,7 @@ from torch.autograd import Variable
 import torch.utils.data.sampler as sampler
 import torch.optim as optim
 
-from model import RLBind
+from model import DON
 from dataset import DataSet
 from evaluation import compute_roc,compute_mcc, micro_score, compute_performance
 from utils import *
@@ -62,7 +62,7 @@ def predict(model_file,test_data,batch_size,test_index,save=None):
         test_list = pickle.load(f_test)
     test_samples = sampler.SubsetRandomSampler(test_list)
     test_load = torch.utils.data.DataLoader(test_data, batch_size=batch_size, sampler=test_samples, pin_memory=(torch.cuda.is_available()), num_workers = 6, drop_last=False)
-    model = RLBind()
+    model = DON()
     model.load_state_dict(torch.load(model_file))
     model = model.cuda()
     p_max,r_max,auc,t_max,mcc,predictions,t_labels,t_predicts,nucle_nums,rna_names=test(model,test_load)
