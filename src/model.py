@@ -97,7 +97,7 @@ class InceptionA(nn.Module):
         output = torch.cat([x_1x1, x_5x5, x_3x3, x_branch], 1)
         return output
 
-class RLBind(torch.nn.Module):
+class DON(torch.nn.Module):
     def __init__(self):
         super(RLBind, self).__init__()
 
