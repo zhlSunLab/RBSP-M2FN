@@ -13,7 +13,7 @@ import torch.utils.data.sampler as sampler
 import torch.optim as optim
 from sklearn.model_selection import KFold
 
-from model import RLBind
+from model import DON
 from dataset import DataSet
 from evaluation import compute_roc, compute_mcc, micro_score, compute_performance
 from utils import *
@@ -276,7 +276,7 @@ if __name__ == '__main__':
         test19_data = DataSet(test19_global_files, test19_local_files, test19_global_labels,
                               test19_all_nucleotide_files)
 
-        model = RLBind()
+        model = DON()
 
         #### model training
         train(model, train_data, test19_data, path_dir, batch_size, numbers, epochs, train_index_files,
